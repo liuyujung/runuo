@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
     <AssemblyName>Scripts.CS</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -17,19 +17,21 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Output\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NEWTIMERS, NEWPARENT</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NEWTIMERS;NEWPARENT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>Output\</OutputPath>
-    <DefineConstants>TRACE;NEWTIMERS, NEWPARENT</DefineConstants>
+    <DefineConstants>TRACE;NEWTIMERS;NEWPARENT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <RootNamespace>Server</RootNamespace>
@@ -37,32 +39,32 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>Output\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NEWTIMERS, NEWPARENT</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NEWTIMERS;NEWPARENT</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>Output\</OutputPath>
-    <DefineConstants>TRACE;NEWTIMERS, NEWPARENT</DefineConstants>
+    <DefineConstants>TRACE;NEWTIMERS;NEWPARENT</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x64</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accounting\AccessRestrictions.cs" />
@@ -810,17 +812,17 @@
     <Compile Include="Gumps\PetResurrectGump.cs" />
     <Compile Include="Gumps\PlayerVendorGumps.cs" />
     <Compile Include="Gumps\PolymorphGump.cs" />
-    <Compile Include="Gumps\Properties\PropsConfig.cs" />
-    <Compile Include="Gumps\Properties\PropsGump.cs" />
-    <Compile Include="Gumps\Properties\SetBodyGump.cs" />
-    <Compile Include="Gumps\Properties\SetCustomEnumGump.cs" />
-    <Compile Include="Gumps\Properties\SetGump.cs" />
-    <Compile Include="Gumps\Properties\SetListOptionGump.cs" />
-    <Compile Include="Gumps\Properties\SetObjectGump.cs" />
-    <Compile Include="Gumps\Properties\SetObjectTarget.cs" />
-    <Compile Include="Gumps\Properties\SetPoint2DGump.cs" />
-    <Compile Include="Gumps\Properties\SetPoint3DGump.cs" />
-    <Compile Include="Gumps\Properties\SetTimeSpanGump.cs" />
+    <Compile Include="Gumps\Props\PropsConfig.cs" />
+    <Compile Include="Gumps\Props\PropsGump.cs" />
+    <Compile Include="Gumps\Props\SetBodyGump.cs" />
+    <Compile Include="Gumps\Props\SetCustomEnumGump.cs" />
+    <Compile Include="Gumps\Props\SetGump.cs" />
+    <Compile Include="Gumps\Props\SetListOptionGump.cs" />
+    <Compile Include="Gumps\Props\SetObjectGump.cs" />
+    <Compile Include="Gumps\Props\SetObjectTarget.cs" />
+    <Compile Include="Gumps\Props\SetPoint2DGump.cs" />
+    <Compile Include="Gumps\Props\SetPoint3DGump.cs" />
+    <Compile Include="Gumps\Props\SetTimeSpanGump.cs" />
     <Compile Include="Gumps\ReclaimVendorGump.cs" />
     <Compile Include="Gumps\ReportMurderer.cs" />
     <Compile Include="Gumps\ResurrectGump.cs" />
@@ -1597,6 +1599,7 @@
     <Compile Include="Items\Resources\Reagents\Bloodmoss.cs" />
     <Compile Include="Items\Resources\Reagents\DaemonBlood.cs" />
     <Compile Include="Items\Resources\Reagents\DaemonBone.cs" />
+    <Compile Include="Items\Resources\Reagents\DragonsBlood.cs" />
     <Compile Include="Items\Resources\Reagents\DeadWood.cs" />
     <Compile Include="Items\Resources\Reagents\Garlic.cs" />
     <Compile Include="Items\Resources\Reagents\Ginseng.cs" />
@@ -1657,6 +1660,7 @@
     <Compile Include="Items\Skill Items\Magical\Misc\Moongate.cs" />
     <Compile Include="Items\Skill Items\Magical\Misc\PotionKeg.cs" />
     <Compile Include="Items\Skill Items\Magical\Misc\RecallRune.cs" />
+    <Compile Include="Items\Skill Items\Magical\MysticSpellbook.cs" />
     <Compile Include="Items\Skill Items\Magical\NecromancerSpellbook.cs" />
     <Compile Include="Items\Skill Items\Magical\Potions\Agility Potions\AgilityPotion.cs" />
     <Compile Include="Items\Skill Items\Magical\Potions\Agility Potions\BaseAgilityPotion.cs" />
@@ -1728,6 +1732,22 @@
     <Compile Include="Items\Skill Items\Magical\Scrolls\Fourth Circle\LightningScroll.cs" />
     <Compile Include="Items\Skill Items\Magical\Scrolls\Fourth Circle\ManaDrainScroll.cs" />
     <Compile Include="Items\Skill Items\Magical\Scrolls\Fourth Circle\RecallScroll.cs" />
+    <Compile Include="Items\Skill Items\Magical\Scrolls\Mysticism\AnimatedWeaponScroll.cs" />
+    <Compile Include="Items\Skill Items\Magical\Scrolls\Mysticism\BombardScroll.cs" />
+    <Compile Include="Items\Skill Items\Magical\Scrolls\Mysticism\CleansingWindsScroll.cs" />
+    <Compile Include="Items\Skill Items\Magical\Scrolls\Mysticism\EagleStrikeScroll.cs" />
+    <Compile Include="Items\Skill Items\Magical\Scrolls\Mysticism\EnchantScroll.cs" />
+    <Compile Include="Items\Skill Items\Magical\Scrolls\Mysticism\HailStormScroll.cs" />
+    <Compile Include="Items\Skill Items\Magical\Scrolls\Mysticism\HealingStoneScroll.cs" />
+    <Compile Include="Items\Skill Items\Magical\Scrolls\Mysticism\MassSleepScroll.cs" />
+    <Compile Include="Items\Skill Items\Magical\Scrolls\Mysticism\NetherBoltScroll.cs" />
+    <Compile Include="Items\Skill Items\Magical\Scrolls\Mysticism\NetherCycloneScroll.cs" />
+    <Compile Include="Items\Skill Items\Magical\Scrolls\Mysticism\PurgeMagicScroll.cs" />
+    <Compile Include="Items\Skill Items\Magical\Scrolls\Mysticism\RisingColossusScroll.cs" />
+    <Compile Include="Items\Skill Items\Magical\Scrolls\Mysticism\SleepScroll.cs" />
+    <Compile Include="Items\Skill Items\Magical\Scrolls\Mysticism\SpellPlagueScroll.cs" />
+    <Compile Include="Items\Skill Items\Magical\Scrolls\Mysticism\SpellTriggerScroll.cs" />
+    <Compile Include="Items\Skill Items\Magical\Scrolls\Mysticism\StoneFormScroll.cs" />
     <Compile Include="Items\Skill Items\Magical\Scrolls\Necromancy\AnimateDeadScroll.cs" />
     <Compile Include="Items\Skill Items\Magical\Scrolls\Necromancy\BloodOathScroll.cs" />
     <Compile Include="Items\Skill Items\Magical\Scrolls\Necromancy\CorpseSkinScroll.cs" />
@@ -2693,6 +2713,7 @@
     <Compile Include="Mobiles\Monsters\Misc\Magic\Pixie.cs" />
     <Compile Include="Mobiles\Monsters\Misc\Magic\ShadowWisp.cs" />
     <Compile Include="Mobiles\Monsters\Misc\Magic\Wisp.cs" />
+    <Compile Include="Mobiles\Monsters\Misc\Melee\AnimatedWeapon.cs" />
     <Compile Include="Mobiles\Monsters\Misc\Melee\BladeSpirits.cs" />
     <Compile Include="Mobiles\Monsters\Misc\Melee\Centaur.cs" />
     <Compile Include="Mobiles\Monsters\Misc\Melee\EnergyVortex.cs" />
@@ -3177,6 +3198,13 @@
     <Compile Include="Spells\Fourth\Recall.cs" />
     <Compile Include="Spells\Gargoyle\SpellDefinitions\FlySpell.cs" />
     <Compile Include="Spells\Initializer.cs" />
+    <Compile Include="Spells\Mysticism\AnimatedWeaponSpell.cs" />
+    <Compile Include="Spells\Mysticism\EagleStrikeSpell.cs" />
+    <Compile Include="Spells\Mysticism\HailStormSpell.cs" />
+    <Compile Include="Spells\Mysticism\MysticSpell.cs" />
+    <Compile Include="Spells\Mysticism\NetherCycloneSpell.cs" />
+    <Compile Include="Spells\Mysticism\SpellPlagueSpell.cs" />
+    <Compile Include="Spells\Mysticism\StoneFormSpell.cs" />
     <Compile Include="Spells\Necromancy\AnimateDeadSpell.cs" />
     <Compile Include="Spells\Necromancy\BloodOathSpell.cs" />
     <Compile Include="Spells\Necromancy\CorpseSkin.cs" />
@@ -3274,7 +3302,7 @@
       <Name>Server</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.Targets" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />
   </ProjectExtensions>

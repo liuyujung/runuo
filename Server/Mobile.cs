@@ -4321,7 +4321,7 @@ namespace Server
 								item.Spawner = null;
 							}
 
-							if( amount == 0 )
+							if( amount < 1 )
 								amount = 1;
 
 							if( amount > item.Amount )
@@ -4478,7 +4478,7 @@ namespace Server
 
 					foreach(NetState ns in eable) {
 						if (ns.StygianAbyss)
-								continue;
+							continue;
 
 						if( ns.Mobile != this && ns.Mobile.CanSee( this ) && ns.Mobile.InLOS( this ) && ns.Mobile.CanSee( root ) ) {
 							if (p == null) {
@@ -8129,7 +8129,7 @@ namespace Server
 								}
 							}
 
-							Timer.DelayCall( TimeSpan.Zero, delegate { item.Delete(); } );
+							Timer.DelayCall( item.Delete );
 						}
 					}
 
@@ -9183,10 +9183,10 @@ namespace Server
 									m.m_NetState.Send(MobileIncoming.Create(m.m_NetState, m, this));
 
 									if ( m.m_NetState.StygianAbyss ) {
-										if ( m_Poison != null )
+										//if ( m_Poison != null )
 											m.m_NetState.Send( new HealthbarPoison( this ) );
 
-										if ( m_Blessed || m_YellowHealthbar )
+										//if ( m_Blessed || m_YellowHealthbar )
 											m.m_NetState.Send( new HealthbarYellow( this ) );
 									}
 
@@ -9207,10 +9207,10 @@ namespace Server
 									ourState.Send(MobileIncoming.Create(ourState, this, m));
 
 									if ( ourState.StygianAbyss ) {
-										if ( m.Poisoned )
+										//if ( m.Poisoned )
 											ourState.Send( new HealthbarPoison( m ) );
 
-										if ( m.Blessed || m.YellowHealthbar )
+										//if ( m.Blessed || m.YellowHealthbar )
 											ourState.Send( new HealthbarYellow( m ) );
 									}
 
@@ -9241,10 +9241,10 @@ namespace Server
 								ns.Send(MobileIncoming.Create(ns, ns.Mobile, this));
 
 								if ( ns.StygianAbyss ) {
-									if ( m_Poison != null )
+									//if ( m_Poison != null )
 										ns.Send( new HealthbarPoison( this ) );
 
-									if ( m_Blessed || m_YellowHealthbar )
+									//if ( m_Blessed || m_YellowHealthbar )
 										ns.Send( new HealthbarYellow( this ) );
 								}
 
@@ -9662,6 +9662,7 @@ namespace Server
 		{
 			return true;
 		}
+
 		public bool OpenTrade(Mobile from)
 		{
 			return OpenTrade(from, null);
